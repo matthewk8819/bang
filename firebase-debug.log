@@ -1,0 +1,35 @@
+[debug] [2023-04-30T16:45:52.518Z] ----------------------------------------------------------------------
+[debug] [2023-04-30T16:45:52.519Z] Command:       /usr/local/bin/node /Users/matthew/.npm-global/bin/firebase serve
+[debug] [2023-04-30T16:45:52.519Z] CLI Version:   11.29.1
+[debug] [2023-04-30T16:45:52.519Z] Platform:      darwin
+[debug] [2023-04-30T16:45:52.519Z] Node Version:  v19.2.0
+[debug] [2023-04-30T16:45:52.519Z] Time:          Sun Apr 30 2023 09:45:52 GMT-0700 (Pacific Daylight Time)
+[debug] [2023-04-30T16:45:52.520Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-30T16:45:52.551Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-30T16:45:52.551Z] > authorizing via signed-in user (matthewk8819@gmail.com)
+[debug] [2023-04-30T16:45:52.551Z] [iam] checking project mkohawks-d6f0a for permissions ["firebase.projects.get"]
+[debug] [2023-04-30T16:45:52.552Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mkohawks-d6f0a:testIamPermissions [none]
+[debug] [2023-04-30T16:45:52.552Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mkohawks-d6f0a:testIamPermissions x-goog-quota-user=projects/mkohawks-d6f0a
+[debug] [2023-04-30T16:45:52.552Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mkohawks-d6f0a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-30T16:45:52.986Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mkohawks-d6f0a:testIamPermissions 200
+[debug] [2023-04-30T16:45:52.987Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mkohawks-d6f0a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-30T16:45:52.988Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a [none]
+[debug] [2023-04-30T16:45:53.385Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a 200
+[debug] [2023-04-30T16:45:53.386Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a {"projectId":"mkohawks-d6f0a","projectNumber":"801598744102","displayName":"mkohawks","name":"projects/mkohawks-d6f0a","resources":{"hostingSite":"mkohawks-d6f0a"},"state":"ACTIVE","etag":"1_9485542a-daeb-4a44-8a6c-c4494d24fe76"}
+[info] 
+[info] === Serving from '/Users/matthew/websitefolder'...
+[info] 
+[debug] [2023-04-30T16:45:53.389Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/mkohawks-d6f0a/sites 
+[debug] [2023-04-30T16:45:54.021Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/mkohawks-d6f0a/sites 200
+[debug] [2023-04-30T16:45:54.021Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/mkohawks-d6f0a/sites {"sites":[{"name":"projects/mkohawks-d6f0a/sites/mkohawks-d6f0a","defaultUrl":"https://mkohawks-d6f0a.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-04-30T16:45:54.022Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a/webApps/-/config [none]
+[debug] [2023-04-30T16:45:54.416Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a/webApps/-/config 200
+[debug] [2023-04-30T16:45:54.416Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a/webApps/-/config {"projectId":"mkohawks-d6f0a","storageBucket":"mkohawks-d6f0a.appspot.com","apiKey":"AIzaSyC4wZkg44O8rll_LCWvzdzgMxRn5YQHP6s","authDomain":"mkohawks-d6f0a.firebaseapp.com","messagingSenderId":"801598744102"}
+[debug] [2023-04-30T16:45:54.442Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a [none]
+[debug] [2023-04-30T16:45:54.827Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a 200
+[debug] [2023-04-30T16:45:54.827Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mkohawks-d6f0a {"projectId":"mkohawks-d6f0a","projectNumber":"801598744102","displayName":"mkohawks","name":"projects/mkohawks-d6f0a","resources":{"hostingSite":"mkohawks-d6f0a"},"state":"ACTIVE","etag":"1_9485542a-daeb-4a44-8a6c-c4494d24fe76"}
+[info] i  hosting[mkohawks-d6f0a]: Serving hosting files from: bang {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbang\u001b[22m"}}
+[info] ✔  hosting[mkohawks-d6f0a]: Local server: http://localhost:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5002\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [30/Apr/2023:16:46:03 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [30/Apr/2023:16:46:03 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [30/Apr/2023:16:46:03 +0000] "GET /favicon.ico HTTP/1.1" 200 - "http://localhost:5002/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [30/Apr/2023:16:46:03 +0000] \"GET /favicon.ico HTTP/1.1\" 200 - \"http://localhost:5002/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36\""}}

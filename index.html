@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash Ketchum's Pokemon Adventure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        #ash {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .pokeball {
+            width: 80px;
+            height: 80px;
+            background-color: #ff0000;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+        }
+        
+        .pokeball:hover {
+            transform: scale(1.1);
+        }
+        
+        .pokemon {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: #ff0000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ash Ketchum's Pokemon Adventure</h1>
+    </header>
+    <div class="container">
+        <img src="https://www.giantbomb.com/a/uploads/scale_small/46/462814/3188850-8400957030-Ash_S.png" alt="Ash Ketchum" id="ash">
+        <div class="pokeball" id="pokeball">
+            <i class="fas fa-circle"></i>
+        </div>
+        <div class="pokemon" id="pokemon">
+            Click the Pokeball to catch a Pokemon!
+        </div>
+    </div>
+    <footer>
+        &copy; 2023 Ash Ketchum's Pokemon Adventure. All rights reserved.
+    </footer>
+    <script>
+        const ash = document.getElementById('ash');
+        const pokeball = document.getElementById('pokeball');
+        const pokemon = document.getElementById('pokemon');
+        const pokemonList = ['Pikachu', 'Charizard', 'Squirtle', 'Bulbasaur', 'Jigglypuff'];
+        
+        let isMovingLeft = false;
+        let isMovingRight = false;
+        let speed = 10;
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                isMovingLeft = true;
+            } else if (event.key === 'ArrowRight') {
+                isMovingRight = true;
+           
+              }
+    });
+    
+    document.addEventListener('keyup', (event) => {
+        if (event.key === 'ArrowLeft') {
+            isMovingLeft = false;
+        } else if (event.key === 'ArrowRight') {
+            isMovingRight = false;
+        }
+    });
+    
+    function moveAsh() {
+        if (isMovingLeft) {
+            let currentLeft = parseInt(getComputedStyle(ash).getPropertyValue('left'));
+            ash.style.left = `${currentLeft - speed}px`;
+        } else if (isMovingRight) {
+            let currentLeft = parseInt(getComputedStyle(ash).getPropertyValue('left'));
+            ash.style.left = `${currentLeft + speed}px`;
+        }
+        
+        requestAnimationFrame(moveAsh);
+    }
+    
+    requestAnimationFrame(moveAsh);
+    
+    pokeball.addEventListener('click', () => {
+        let randomPokemon = pokemonList[Math.floor(Math.random() * pokemonList.length)];
+        pokemon.textContent = `You caught a ${randomPokemon}!`;
+    });
+</script>
