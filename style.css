@@ -1,0 +1,49 @@
+/* Set body background to black */
+body {
+    background-color: black;
+  }
+  
+  /* Set font to off-white and center all text */
+  body, h1, h2, h3, p, a {
+    color: #f5f5f5;
+    text-align: center;
+  }
+  
+  /* Style the page heading with a bold font */
+  h1 {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-top: 2rem;
+  }
+  
+  /* Style subheadings with a thinner font and smaller size */
+  h2 {
+    font-weight: 300;
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  
+  /* Style links with a white color and underline */
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Style buttons with a light gray background and white text */
+  button {
+    background-color: #f2f2f2;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+  
+  /* Add hover effect to button */
+  button:hover {
+    background-color: white;
+    color: black;
+  }
+  

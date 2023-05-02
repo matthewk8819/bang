@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash Ketchum's Pokemon Adventure</title>
@@ -78,6 +79,10 @@
     </style>
 </head>
 <body>
+    <a href="index2.html">
+        <button>Go to Other Page</button>
+      </a>
+    <button id="style-switcher">Switch Styles</button>
     <header>
         <h1>Pokemon Adventure</h1>
     </header>
@@ -90,9 +95,6 @@
             Click the Pokeball to catch a Pokemon!
         </div>
     </div>
-    <footer>
-        &copy; 2023 Ash Ketchum's Pokemon Adventure. All rights reserved.
-    </footer>
     <script>
         const ash = document.getElementById('ash');
         const pokeball = document.getElementById('pokeball');
@@ -139,3 +141,6 @@
         pokemon.textContent = `You caught a ${randomPokemon}!`;
     });
 </script>
+
+
+  

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Henry is Awesome</title>
+    <link rel="stylesheet" type="text/css" href="style.css" id="style1">
+    <link rel="stylesheet" type="text.css" href="style1.css" id="style2">
+</head>
+<body>
+    <button onclick="toggleStylesheet()">Toggle Stylesheet</button>
+    <script>
+		function toggleStylesheet() {
+			var stylesheet = document.getElementById("style1");
+			if (stylesheet.getAttribute("href") == "style.css") {
+				stylesheet.setAttribute("href", "style1.css");
+			} else {
+				stylesheet.setAttribute("href", "style.css");
+			}
+		}
+	</script>
+    <a href="index.html">
+        <button>Go to Other Page</button>
+      </a>
+	<h1>Henry is Awesome</h1>
+	<p>Meet Henry - he's one of the coolest people you'll ever meet. Here are just a few reasons why:</p>
+
+	<!-- Henry's first cool trait -->
+	<div>
+		<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*8cY251GdPvqM4FRkpLcaMg.png" alt="Henry being awesome">
+		<h2>Henry is an Amazing Dancer</h2>
+		<p>Whether it's salsa, hip hop, or tap, Henry can do it all. He's been dancing since he was a kid, and he's performed in several dance competitions across the country. Henry's smooth moves are sure to impress!</p>
+	</div>
+
+	<!-- Henry's second cool trait -->
+	<div>
+		<img src="https://thumbs.dreamstime.com/b/cartoon-chef-fat-vector-clip-art-illustration-simple-gradients-all-single-layer-64543945.jpg" alt="Henry being awesome">
+		<h2>Henry is a Master Chef</h2>
+		<p>Henry's culinary skills are truly amazing. From sushi to steak, he can cook it all with ease. His dishes not only look great but also taste delicious. If you're lucky enough to have a meal cooked by Henry, you're in for a treat!</p>
+	</div>
+
+	<!-- Henry's third cool trait -->
+	<div>
+		<img src="https://www.anderson.ucla.edu/sites/default/files/styles/biography_card/public/images/areas/fac/2015/areas-of-study/Wacziarg_Romain.jpg?h=0e84e4da&itok=w8A8RU_i" alt="Henry being awesome">
+		<h2>Henry is an Expert Gamer</h2>
+		<p>Henry is a true gamer at heart. He has an impressive collection of video games and can beat just about any game you throw at him. He's also a big fan of tabletop games like Dungeons and Dragons, and he's always up for a good game night.</p>
+	</div>
+
+</body>
+</html>
+
