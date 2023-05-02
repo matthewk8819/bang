@@ -58,4 +58,54 @@ body {
     background-color: #8b4513;
     color: #f5deb3;
   }
+
+  .spin {
+    animation: spin 2s linear infinite;
+    filter: saturate(200%) contrast(150%) brightness(75%) sepia(30%);
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .deep-fry {
+    filter: saturate(200%) contrast(150%) brightness(75%) sepia(30%);
+  }
+  
+  
+  .smoke {
+    position: relative;
+    animation: smoke 2s linear infinite;
+  }
+  
+  @keyframes smoke {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
+  
+  .smoke:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #aaa;
+  }
   
