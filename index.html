@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: "arvo", serif;
+      font-family: "open sans", sans-serif;
       text-align: center;
       background: linear-gradient(to bottom right, #ff9999, #ffcccc);
       margin: 0;
@@ -14,7 +14,7 @@
 
     h1 {
       color: #ff0000;
-      font-size: 4rem;
+      font-size: 3rem;
       margin-top: 0;
     }
 
@@ -28,15 +28,15 @@
     }
 
     .animal-output {
-      font-size: 6rem;
+      font-size: 5rem;
       font-weight: bold;
       color: #ff0000;
       margin-top: 30px;
     }
 
     .header {
-      font-family: "arvo", serif;
-      font-size: 10rem;
+      font-family: "open sans", sans-serif;
+      font-size: 4rem;
       color: #000;
       margin-bottom: 40px;
       position: relative;
@@ -46,28 +46,65 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      width: 120px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .header-title {
+      margin-left: 100px;
     }
 
     .animal-images {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       margin-top: 40px;
     }
 
     .animal-image {
-      width: 200px;
-      height: 200px;
-      margin: 0 10px;
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .header {
+        font-size: 2.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .number-input {
+        font-size: 1.5rem;
+      }
+
+      .animal-output {
+        font-size: 4rem;
+      }
+
+      .header-title {
+        margin-left: 0;
+      }
+
+      .animal-images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .animal-image {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <a href="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png" target="_blank">
-      <img src="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png" alt="HW INC Logo" class="header-icon">
-    </a>
-    HW INC
+    <img src="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png" alt="HW INC Logo" class="header-icon">
+    <span class="header-title">HW INC</span>
   </div>
   <h1>Input your INC ID:</h1>
   <input type="number" id="numberInput" class="number-input" min="1" max="60" placeholder="Enter your INC ID" onkeydown="if (event.keyCode === 13) generateAnimal()">
@@ -99,48 +136,63 @@
       var animals = [
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
         "Monkey",
         "Lion",
         "Elephant",
-        "Giraffe",
         "Dolphin",
+        "Giraffe",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Dolphin",
+        "Giraffe",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Dolphin",
+        "Giraffe",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Dolphin",
+        "Giraffe",
         "Monkey"
       ];
 
