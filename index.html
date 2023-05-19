@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: "Lora", serif;
+      font-family: "arvo", serif;
       text-align: center;
       background: linear-gradient(to bottom right, #ff9999, #ffcccc);
       margin: 0;
@@ -35,7 +35,7 @@
     }
 
     .header {
-      font-family: "Lora", serif;
+      font-family: "arvo", serif;
       font-size: 10rem;
       color: #000;
       margin-bottom: 40px;
@@ -46,13 +46,27 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      width: 90px;
+      width: 120px;
+    }
+
+    .animal-images {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .animal-image {
+      width: 200px;
+      height: 200px;
+      margin: 0 10px;
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <img src="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png/v1/fill/w_222,h_220,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/RoundedTextLogo-HW25RED.png" alt="Icon" class="header-icon">
+    <a href="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png" target="_blank">
+      <img src="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png" alt="HW INC Logo" class="header-icon">
+    </a>
     HW INC
   </div>
   <h1>Input your INC ID:</h1>
@@ -60,21 +74,74 @@
   <button onclick="generateAnimal()" class="display-button">Generate</button>
   <p id="animalOutput" class="animal-output"></p>
 
+  <div class="animal-images">
+    <a href="https://easydrawingguides.com/wp-content/uploads/2022/01/easy-cartoon-lion-step-by-step-drawing-tutorial-step-10.png" target="_blank">
+      <img src="https://easydrawingguides.com/wp-content/uploads/2022/01/easy-cartoon-lion-step-by-step-drawing-tutorial-step-10.png" alt="Lion" class="animal-image">
+    </a>
+    <a href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/15070/cartoon-elephant-clipart-md.png" target="_blank">
+      <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/15070/cartoon-elephant-clipart-md.png" alt="Elephant" class="animal-image">
+    </a>
+    <a href="https://static.vecteezy.com/system/resources/previews/019/152/755/non_2x/dolphin-graphic-clipart-design-free-png.png" target="_blank">
+      <img src="https://static.vecteezy.com/system/resources/previews/019/152/755/non_2x/dolphin-graphic-clipart-design-free-png.png" alt="Bear" class="animal-image">
+    </a>
+    <a href="https://freesvg.org/img/lemmling-Cartoon-giraffe.png" target="_blank">
+      <img src="https://freesvg.org/img/lemmling-Cartoon-giraffe.png" alt="Giraffe" class="animal-image">
+    </a>
+    <a href="https://freesvg.org/img/monkey-face-cartoon.png" target="_blank">
+      <img src="https://freesvg.org/img/monkey-face-cartoon.png" alt="Monkey" class="animal-image">
+    </a>
+  </div>
+
   <script>
     function generateAnimal() {
       var number = document.getElementById("numberInput").value;
       var animalOutputElement = document.getElementById("animalOutput");
       var animals = [
         "Lion",
-        "Tiger",
-        "Bear",
         "Elephant",
         "Giraffe",
+        "Dolphin",
         "Monkey",
-        "Panda",
-        "Kangaroo",
-        "Hippopotamus",
-        "Zebra"
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey",
+        "Lion",
+        "Elephant",
+        "Giraffe",
+        "Dolphin",
+        "Monkey"
       ];
 
       if (number >= 1 && number <= 60) {
