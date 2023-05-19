@@ -1,145 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <title>Word Display</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffcccc;
+      margin: 0;
+      padding: 20px;
+    }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ash Ketchum's Pokemon Adventure</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        header {
-            background-color: #ff0000;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        h1 {
-            margin: 0;
-            padding: 0;
-            font-size: 3rem;
-            font-weight: bold;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        #ash {
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-        
-        .pokeball {
-            width: 80px;
-            height: 80px;
-            background-color: #ff0000;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            color: #ffffff;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            position: absolute;
-        }
-        
-        .pokeball:hover {
-            transform: scale(1.1);
-        }
-        
-        .pokemon {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        footer {
-            background-color: #ff0000;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+    h1 {
+      color: #333;
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
+    .number-input {
+      width: 80%;
+      max-width: 300px;
+      padding: 12px;
+      font-size: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .display-word {
+      font-size: 6rem;
+      font-weight: bold;
+      animation: flashyFont 1s infinite;
+      color: #ff0000;
+    }
+
+    @keyframes flashyFont {
+      0% { color: blue; }
+      50% { color: magenta; }
+      100% { color: green; }
+    }
+
+    .error-message {
+      color: red;
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .display-button {
+      padding: 12px 24px;
+      font-size: 1.5rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .display-button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <a href="index2.html">
-        <button>Totally secret page</button>
-      </a>
-    <header>
-        <h1>Pokemon Adventure</h1>
-    </header>
-    <div class="container">
-        <img src="https://www.giantbomb.com/a/uploads/scale_small/46/462814/3188850-8400957030-Ash_S.png" alt="Ash Ketchum" id="ash">
-        <div class="pokeball" id="pokeball">
-            <i class="fas fa-circle"></i>
-        </div>
-        <div class="pokemon" id="pokemon">
-            Click the Pokeball to catch a Pokemon!
-        </div>
-    </div>
-    <script>
-        const ash = document.getElementById('ash');
-        const pokeball = document.getElementById('pokeball');
-        const pokemon = document.getElementById('pokemon');
-        const pokemonList = ['Pikachu', 'Charizard', 'Squirtle', 'Bulbasaur', 'Jigglypuff'];
-        
-        let isMovingLeft = false;
-        let isMovingRight = false;
-        let speed = 10;
-        
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowLeft') {
-                isMovingLeft = true;
-            } else if (event.key === 'ArrowRight') {
-                isMovingRight = true;
-           
-              }
-    });
-    
-    document.addEventListener('keyup', (event) => {
-        if (event.key === 'ArrowLeft') {
-            isMovingLeft = false;
-        } else if (event.key === 'ArrowRight') {
-            isMovingRight = false;
-        }
-    });
-    
-    function moveAsh() {
-        if (isMovingLeft) {
-            let currentLeft = parseInt(getComputedStyle(ash).getPropertyValue('left'));
-            ash.style.left = `${currentLeft - speed}px`;
-        } else if (isMovingRight) {
-            let currentLeft = parseInt(getComputedStyle(ash).getPropertyValue('left'));
-            ash.style.left = `${currentLeft + speed}px`;
-        }
-        
-        requestAnimationFrame(moveAsh);
+  <h1>Word Display</h1>
+  <p>Enter a number from 1 to 60:</p>
+  <input type="number" id="numberInput" class="number-input" min="1" max="60" placeholder="Enter a number">
+  <div class="button-container">
+    <button onclick="displayWord()" class="display-button">Display</button>
+  </div>
+  <p id="displayedWord" class="display-word"></p>
+  <p id="errorMessage" class="error-message"></p>
+
+  <script>
+    function displayWord() {
+      var number = document.getElementById("numberInput").value;
+      var displayedWordElement = document.getElementById("displayedWord");
+      var errorMessageElement = document.getElementById("errorMessage");
+
+      if (number >= 1 && number <= 60) {
+        var word = getDesignatedWord(number);
+        displayedWordElement.textContent = word;
+        errorMessageElement.textContent = "";
+      } else {
+        displayedWordElement.textContent = "";
+        errorMessageElement.textContent = "Invalid number. Please enter a number from 1 to 60.";
+      }
     }
-    
-    requestAnimationFrame(moveAsh);
-    
-    pokeball.addEventListener('click', () => {
-        let randomPokemon = pokemonList[Math.floor(Math.random() * pokemonList.length)];
-        pokemon.textContent = `You caught a ${randomPokemon}!`;
-    });
-</script>
+
+    function getDesignatedWord(number) {
+      var words = [
+      "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer",
+        "Lions",
+        "Deer",
+        "Elephants",
+        "Ants",
+        "Ants",
+        "Elephants",
+        "Lions",
+        "Deer"
+      ];
+
+      // Subtracting 1 since array indices start from 0
+      return words[number - 1];
+    }
+  </script>
+</body>
+</html>
 
 
-  
+
+
+
+
+        
