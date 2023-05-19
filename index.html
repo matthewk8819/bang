@@ -1,174 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Word Display</title>
+  <title>Animal Generator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Lora", serif;
       text-align: center;
-      background-color: #ffcccc;
+      background: linear-gradient(to bottom right, #ff9999, #ffcccc);
       margin: 0;
       padding: 20px;
     }
 
     h1 {
-      color: #333;
-      font-size: 2rem;
+      color: #ff0000;
+      font-size: 4rem;
       margin-top: 0;
     }
 
     .number-input {
       width: 80%;
       max-width: 300px;
-      padding: 12px;
-      font-size: 1.5rem;
+      padding: 20px;
+      font-size: 2rem;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
 
-    .display-word {
+    .animal-output {
       font-size: 6rem;
       font-weight: bold;
-      animation: flashyFont 1s infinite;
       color: #ff0000;
+      margin-top: 30px;
     }
 
-    @keyframes flashyFont {
-      0% { color: blue; }
-      50% { color: magenta; }
-      100% { color: green; }
+    .header {
+      font-family: "Lora", serif;
+      font-size: 10rem;
+      color: #000;
+      margin-bottom: 40px;
+      position: relative;
     }
 
-    .error-message {
-      color: red;
-      font-size: 1.5rem;
-      margin-top: 20px;
-    }
-
-    .button-container {
-      margin-top: 20px;
-    }
-
-    .display-button {
-      padding: 12px 24px;
-      font-size: 1.5rem;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .display-button:hover {
-      background-color: #45a049;
+    .header-icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 90px;
     }
   </style>
 </head>
 <body>
-  <h1>Word Display</h1>
-  <p>Enter a number from 1 to 60:</p>
-  <input type="number" id="numberInput" class="number-input" min="1" max="60" placeholder="Enter a number">
-  <div class="button-container">
-    <button onclick="displayWord()" class="display-button">Display</button>
+  <div class="header">
+    <img src="https://static.wixstatic.com/media/682639_36fc2b3373b04bb9982012659a269d79~mv2_d_6639_6639_s_4_2.png/v1/fill/w_222,h_220,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/RoundedTextLogo-HW25RED.png" alt="Icon" class="header-icon">
+    HW INC
   </div>
-  <p id="displayedWord" class="display-word"></p>
-  <p id="errorMessage" class="error-message"></p>
+  <h1>Input your INC ID:</h1>
+  <input type="number" id="numberInput" class="number-input" min="1" max="60" placeholder="Enter your INC ID" onkeydown="if (event.keyCode === 13) generateAnimal()">
+  <button onclick="generateAnimal()" class="display-button">Generate</button>
+  <p id="animalOutput" class="animal-output"></p>
 
   <script>
-    function displayWord() {
+    function generateAnimal() {
       var number = document.getElementById("numberInput").value;
-      var displayedWordElement = document.getElementById("displayedWord");
-      var errorMessageElement = document.getElementById("errorMessage");
-
-      if (number >= 1 && number <= 60) {
-        var word = getDesignatedWord(number);
-        displayedWordElement.textContent = word;
-        errorMessageElement.textContent = "";
-      } else {
-        displayedWordElement.textContent = "";
-        errorMessageElement.textContent = "Invalid number. Please enter a number from 1 to 60.";
-      }
-    }
-
-    function getDesignatedWord(number) {
-      var words = [
-      "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer",
-        "Lions",
-        "Deer",
-        "Elephants",
-        "Ants",
-        "Ants",
-        "Elephants",
-        "Lions",
-        "Deer"
+      var animalOutputElement = document.getElementById("animalOutput");
+      var animals = [
+        "Lion",
+        "Tiger",
+        "Bear",
+        "Elephant",
+        "Giraffe",
+        "Monkey",
+        "Panda",
+        "Kangaroo",
+        "Hippopotamus",
+        "Zebra"
       ];
 
-      // Subtracting 1 since array indices start from 0
-      return words[number - 1];
+      if (number >= 1 && number <= 60) {
+        var animalIndex = (number - 1) % animals.length;
+        var animal = animals[animalIndex];
+        animalOutputElement.textContent = animal;
+      } else {
+        animalOutputElement.textContent = "";
+      }
     }
   </script>
 </body>
 </html>
-
-
-
-
-
-
-        
